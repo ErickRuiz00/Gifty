@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import GifList from "./components/GifList";
+import SearchNav from "./components/SearchNav";
+import { getRandomGif } from "./services/getGif";
 
 function App() {
+  const [gifs, setGifs] = useState([]);
+
+  useEffect(() => {
+    getRandomGif().then((gif) => setGifs(gif));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="App-content">
+      <h1>gif search</h1>
+      <SearchNav setGifs={setGifs} />
+      <GifList gifs={gifs} />
+    </section>
   );
 }
 

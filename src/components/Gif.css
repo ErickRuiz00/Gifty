@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+}
+
+.gif-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff1;
+  padding: 20px;
+  margin: 15px 10px;
+  max-width: 300px;
+  text-align: center;
+  color: #fff6;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.gif-container:hover{
+  border: 2px solid #fff8;
+  color: #fff;
+}
+
+small{
+  font-size: 15px;
+}
